@@ -46,6 +46,8 @@ const UrlForm = ({ addUrlToShorten }) => {
   );
 };
 
+export default UrlForm;
+
 // class UrlForm extends Component {
 //   constructor(props) {
 //     super();
@@ -96,4 +98,4 @@ const UrlForm = ({ addUrlToShorten }) => {
   // }
 // }
 
-export default UrlForm;
+

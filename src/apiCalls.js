@@ -6,8 +6,8 @@ export const getUrls = () => {
 export const postUrl = (newUrl) => {
   return fetch('http://localhost:3001/api/v1/urls', {
     method: "POST",
-    headers: {"Content-Type": "application/json"},
+    header: {"Content-Type": "application/json"},
     body: JSON.stringify(newUrl)
   })
-  .then(response => response.json())
+    .then(response => response.json())
 }

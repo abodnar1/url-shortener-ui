@@ -9,13 +9,8 @@ const App = () => {
   const [error, setError] = useState("");
 
   const addUrlToShorten = (newUrl) => {
-    console.log("newUrl")
-
     return postUrl(newUrl)
-      .then(data => {
-        console.log(data)
-        setUrls([...urls, data])
-      })
+      .then(data => setUrls([...urls, data]))
       .catch(err => setError(err.message))
   };
 

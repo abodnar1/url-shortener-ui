@@ -1,6 +1,12 @@
 export const getUrls = () => {
   return fetch('http://localhost:3001/api/v1/urls')
-    .then(response => response.json())
+    .then(res => {
+      if(res.ok) {
+        return res.json()
+      } else {
+        return new Error("Oops, something happened! Please try again.")
+      }
+    })
 }
 
 export const postUrl = (newUrl) => {
@@ -9,5 +15,11 @@ export const postUrl = (newUrl) => {
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(newUrl)
   })
-    .then(response => response.json())
+    .then(res => {
+      if(res.ok) {
+        return res.json()
+      } else {
+        return new Error("Oops, something happened! Please try again.")
+      }
+    })
 }

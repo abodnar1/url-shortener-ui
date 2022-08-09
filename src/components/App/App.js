@@ -26,8 +26,8 @@ const App = () => {
         <h1 className="app-title">URL Shortener</h1>
         <UrlForm addUrlToShorten={addUrlToShorten} setError={setError} />
       </header>
-      {error && <p className="error-message">{error}</p>}
-      <UrlContainer urls={urls} />
+      { error && <p className="error-message">{error}</p> }
+      { urls.length ? <UrlContainer urls={urls} /> : <p>No urls yet! Find some to shorten!</p> }
     </main>
   );
 };

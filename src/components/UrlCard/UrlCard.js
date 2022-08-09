@@ -1,15 +1,15 @@
 import React from "react";
 import "./UrlCard.css";
 
-const UrlCard = () => {
+const UrlCard = ({ id, title, shortUrl, longUrl }) => {
 
   return (
     <div className="url">
-      <h3>{url.title}</h3>
-      <a href={url.short_url} target="blank">{url.short_url}</a>
-      <p>{url.long_url}</p>
+      <h3>{title}</h3>
+      <a href={shortUrl} target="blank">{shortUrl}</a>
+      <p>{longUrl}</p>
     </div>
-  )
+  );
 }
 
 export default UrlCard;

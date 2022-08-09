@@ -8,6 +8,15 @@ const App = () => {
   const [urls, setUrls] = useState([]);
   const [error, setError] = useState("");
 
+
+  const addUrlToShorten = (newUrl) => {
+    console.log("newUrl")
+    
+    return 
+  };
+
+
+
   useEffect(() => {
     getUrls()
     .then(data => setUrls(data.urls))
@@ -18,7 +27,7 @@ const App = () => {
     <main className="App">
       <header>
         <h1>URL Shortener</h1>
-        <UrlForm />
+        <UrlForm addUrlToShorten={addUrlToShorten} />
       </header>
       {error && <p className="error-message">{error}</p>}
       <UrlContainer urls={urls} />

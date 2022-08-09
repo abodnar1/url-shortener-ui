@@ -8,8 +8,8 @@ const UrlForm = ({ addUrlToShorten }) => {
     e.preventDefault();
 
     const newUrl = {
-      long_url: urlToShorten,
-      title: title      
+      title: title,      
+      long_url: urlToShorten
     };
 
     addUrlToShorten(newUrl);

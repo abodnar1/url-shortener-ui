@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './App.css';
-import { getUrls } from '../../apiCalls';
+import { getUrls, postUrl } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
@@ -8,14 +8,16 @@ const App = () => {
   const [urls, setUrls] = useState([]);
   const [error, setError] = useState("");
 
-
   const addUrlToShorten = (newUrl) => {
     console.log("newUrl")
-    
-    return 
+
+    return postUrl(newUrl)
+      .then(data => {
+        console.log(data)
+        setUrls([...urls, data])
+      })
+      .catch(err => setError(err.message))
   };
-
-
 
   useEffect(() => {
     getUrls()

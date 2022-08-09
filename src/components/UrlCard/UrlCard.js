@@ -7,7 +7,7 @@ const UrlCard = ({ id, title, shortUrl, longUrl }) => {
     <div className="url-card">
       <h3>{title}</h3>
       <a href={shortUrl} target="blank">{shortUrl}</a>
-      <p>{longUrl}</p>
+      <p className="long-url">{longUrl}</p>
     </div>
   );
 }

@@ -1,7 +1,7 @@
-describe('URL Shortener', () => {
+describe("URL Shortener", () => {
 
   beforeEach(() => {
-    cy.intercept("GET", 'http://localhost:3001/api/v1/urls', {
+    cy.intercept("GET", "http://localhost:3001/api/v1/urls", {
       statusCode: 200,
       fixture: "url_to_shorten"
     })
@@ -29,11 +29,24 @@ describe('URL Shortener', () => {
     .get("button").first().contains("Shorten Please!")
   });
 
+  it("When a user fills out and submits the form, the new shortened URL is rendered", () => {
+    cy.intercept("POST", "http://localhost:3001/api/v1/urls", {
+      statusCode: 201,
+      body: {
+        title: "Title for POST intercept",
+        long_url: "thisIsWhereTheLongUrlWouldGoForThePOST",
+        id: 2,
+        short_url: "http://localhost:3001/useshorturl/2"
+      }
+    })
+    
+    .get("input[name='title']").type("Title for POST intercept").should("have.value", "Title for POST intercept")
+    .get("input[name='urlToShorten']").type("thisIsWhereTheLongUrlWouldGoForThePOST").should("have.value", "thisIsWhereTheLongUrlWouldGoForThePOST")
+    .get("button").first().contains("Shorten Please!").click()
+
+    .get(".url-container").find(".url-card").contains("h3", "Title for POST intercept")
+    .get(".long-url").contains("p", "thisIsWhereTheLongUrlWouldGoForThePOST")
+    .get("a").contains("http://localhost:3001/useshorturl/2")
+  });
+
 });
-
-
-
-// Iteration 4
-// Write Cypress tests for the following user flows (don't forget to stub your network requests):
-
-// When a user fills out and submits the form, the new shortened URL is rendered

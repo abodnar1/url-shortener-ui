@@ -22,7 +22,7 @@ const UrlForm = ({ addUrlToShorten }) => {
   };
   
   return (
-    <form>
+    <form className="form-container">
       <input
         type='text'
         placeholder='Title...'

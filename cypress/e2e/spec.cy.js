@@ -15,14 +15,19 @@ describe('URL Shortener', () => {
     .get("a").contains("http://localhost:3001/useshorturl/1")
   });
 
+  it("should be able to view the Form with the proper inputs", () => {
+    cy.get(".form-container")
+    .get("input[name='title']")
+    .get("input[name='urlToShorten']")
+    .get("button").first().contains("Shorten Please!")
+  });
+
 });
 
 
 
 
 // Iteration 3
-// Write Cypress tests for the following user flows (don't forget to stub your network requests):
-
 
 // When a user visits the page, they can view the Form with the proper inputs
 // When a user fills out the form, the information is reflected in the input fields

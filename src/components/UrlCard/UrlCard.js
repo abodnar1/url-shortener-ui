@@ -2,7 +2,6 @@ import React from "react";
 import "./UrlCard.css";
 
 const UrlCard = ({ id, title, shortUrl, longUrl }) => {
-
   return (
     <div className="url-card">
       <h3>{title}</h3>
@@ -10,6 +9,6 @@ const UrlCard = ({ id, title, shortUrl, longUrl }) => {
       <p className="long-url">{longUrl}</p>
     </div>
   );
-}
+};
 
 export default UrlCard;
